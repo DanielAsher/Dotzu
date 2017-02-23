@@ -34,6 +34,14 @@ public class Dotzu: NSObject {
         LoggerCrash.register()
     }
 
+    public func hideWindow() {
+        self.window.isHidden = true
+    }
+    
+    public func showWindow() {
+        self.window.isHidden = false
+    }
+    
     public func addLogger(session: URLSessionConfiguration) {
         session.protocolClasses?.insert(LoggerNetwork.self, at: 0)
     }
