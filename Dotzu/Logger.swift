@@ -52,8 +52,9 @@ public class Logger {
 
         Logger.shared.queue.async {
             let newLog = Log(content: stringContent, fileInfo: fileInfo, level: level)
-            let format = LoggerFormat.format(log: newLog)
-            Swift.print(format.str)
+            // TODO: (Daniel Asher) ⚠️ Consider a better way to disable console logging in Dotzu
+            //let format = LoggerFormat.format(log: newLog)
+            //Swift.print(format.str)
             Logger.shared.store.add(log: newLog)
         }
         LogNotificationApp.newLog.post(level)
